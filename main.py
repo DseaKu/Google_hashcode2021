@@ -5,11 +5,11 @@ import pandas as pd
 
 
 def read(selection):
-    input_dict=dict(a = 'kompetitives_programmieren/uebung6/Zusatzmaterial/a_example.in', 
-                    b = 'kompetitives_programmieren/uebung6/Zusatzmaterial/b_little_bit_of_everything.in', 
-                    c = 'kompetitives_programmieren/uebung6/Zusatzmaterial/c_many_ingredients.in', 
-                    d = 'kompetitives_programmieren/uebung6/Zusatzmaterial/d_many_pizzas.in', 
-                    e = 'kompetitives_programmieren/uebung6/Zusatzmaterial/e_many_teams.in')
+    input_dict=dict(a = 'Google_hashcode2021/input /a_example.in', 
+                    b = 'Google_hashcode2021/input /b_little_bit_of_everything.in', 
+                    c = 'Google_hashcode2021/input /c_many_ingredients.in', 
+                    d = 'Google_hashcode2021/input /d_many_pizzas.in', 
+                    e = 'Google_hashcode2021/input /e_many_teams.in')
     
     with open(input_dict[selection], 'r') as input_file:                    # read input
         items = input_file.read()
@@ -66,7 +66,7 @@ def get_runtime(text):
 start_time = time.perf_counter() # start measuring runtime
 
 # get input 
-input = 'c'
+input = 'b'
 items = read(input) 
 team_array, *pizza_array = items 
 team_array = np.array(team_array, dtype=np.int32) # transform an array of strings intro an array of integers, easier to handle in following code
@@ -76,13 +76,25 @@ pizza_df = build_dataframe(pizza_array)
 ingre_arr = np.unique(pizza_df.dropna().values) #  get all uniques (ingredients) in the pizza_df except 'nonetypes'
 ingre_arr = ingre_arr[1:] 
 
-# split dataframe in a size of less then 10000 items for better performance, but decrease accuracy. Pass dataframes < 10000 items
+# split dataframe in a smaller sub dataframes for better performance, but decrease accuracy. Pass dataframes < 10000 items
 pizza_df = split_df(pizza_df)
 get_runtime('pizza_df')
 
 
 # create delivery 
 delivery = pizza_selecter(pizza_df)
+    # interupt if no ingredients left
+     
+    # deliver team of four - selection by determine intersection 
+    # while-loop till no team left?
+
+    # delivor team of three and two - sort pizza by amount of ingredients and select top and bottom pizza
+    # while-loop till no team left
+    # merge dfs together?
+
+    
+    
+
 
 
 
