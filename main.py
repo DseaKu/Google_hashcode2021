@@ -50,6 +50,11 @@ def split_df(pizza_df):
 
     return dataframes
 
+def split_pizza(pizza_df):
+    
+
+    return
+
 def pizza_selecter(pizza_df):
     # create sub delivery
 
@@ -77,8 +82,12 @@ ingre_arr = np.unique(pizza_df.dropna().values) #  get all uniques (ingredients)
 ingre_arr = ingre_arr[1:] 
 
 # split dataframe in a smaller sub dataframes for better performance, but decrease accuracy. Pass dataframes < 10000 items
-pizza_df = split_df(pizza_df)
-get_runtime('pizza_df')
+#pizza_df = split_df(pizza_df)
+#get_runtime('pizza_df')
+
+
+# split dataframe in sub dataframes sorted by common ingredients
+pizza_df = split_pizza()
 
 
 # create delivery 
