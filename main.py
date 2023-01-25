@@ -5,11 +5,11 @@ import pandas as pd
 
 
 def read(selection):
-    input_dict=dict(a = 'Google_hashcode2021/input /a_example.in', 
-                    b = 'Google_hashcode2021/input /b_little_bit_of_everything.in', 
-                    c = 'Google_hashcode2021/input /c_many_ingredients.in', 
-                    d = 'Google_hashcode2021/input /d_many_pizzas.in', 
-                    e = 'Google_hashcode2021/input /e_many_teams.in')
+    input_dict=dict(a = 'Google_hashcode2021/input/a_example.in', 
+                    b = 'Google_hashcode2021/input/b_little_bit_of_everything.in', 
+                    c = 'Google_hashcode2021/input/c_many_ingredients.in', 
+                    d = 'Google_hashcode2021/input/d_many_pizzas.in', 
+                    e = 'Google_hashcode2021/input/e_many_teams.in')
     
     with open(input_dict[selection], 'r') as input_file:                    # read input
         items = input_file.read()
@@ -71,15 +71,24 @@ def get_runtime(text):
 start_time = time.perf_counter() # start measuring runtime
 
 # get input 
-input = 'b'
+input = 'a'
 items = read(input) 
 team_array, *pizza_array = items 
-team_array = np.array(team_array, dtype=np.int32) # transform an array of strings intro an array of integers, easier to handle in following code
+team_array = np.array(team_array, dtype=np.int32) # transform team_array all strings elements intro integers
 pizza_df = build_dataframe(pizza_array) 
 
 # creat an array with an ingredient array
 ingre_arr = np.unique(pizza_df.dropna().values) #  get all uniques (ingredients) in the pizza_df except 'nonetypes'
 ingre_arr = ingre_arr[1:] 
+
+# transform pizza_df of objects into a dataframe of integers
+pizza_df = pizza_df.dropna().astype(int) # drop all rows with 'nonetype' and transform all elements into integers
+
+
+
+
+
+
 
 # split dataframe in a smaller sub dataframes for better performance, but decrease accuracy. Pass dataframes < 10000 items
 #pizza_df = split_df(pizza_df)
