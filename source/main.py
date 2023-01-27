@@ -8,13 +8,6 @@ def read(selection):
                     c = 'Google_hashcode2021/input/c_many_ingredients.in', 
                     d = 'Google_hashcode2021/input/d_many_pizzas.in', 
                     e = 'Google_hashcode2021/input/e_many_teams.in')
-    
-    #input_dict=dict(a = 'kompetitives_programmieren/uebung6/Zusatzmaterial/a_example.in', 
-    #                b = 'kompetitives_programmieren/uebung6/Zusatzmaterial/b_little_bit_of_everything.in', 
-    #                c = 'kompetitives_programmieren/uebung6/Zusatzmaterial/c_many_ingredients.in', 
-    #                d = 'kompetitives_programmieren/uebung6/Zusatzmaterial/d_many_pizzas.in', 
-    #                e = 'kompetitives_programmieren/uebung6/Zusatzmaterial/e_many_teams.in')
-
 
 
     with open(input_dict[selection], 'r') as input_file:                    # read input
